@@ -103,7 +103,56 @@ textarea {
    ========================================================================== */
 
 
+.main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
 
+.remote {
+    --button-top: 150px;
+    background: url('../img/remote.png');
+    width: 190px;
+    height: 422px;
+    position: relative;
+    margin-right: 3em;
+}
+
+.button {
+    width: 43px;
+    height: 52px;
+    position: absolute;
+}
+
+#up {
+    background: url('../img/up.png');
+    top: calc(var(--button-top) + 0px);
+    left: 72px;
+}
+#left {
+    background: url('../img/left.png');
+    top: calc(var(--button-top) + 54px);
+    left: 52px;
+}
+#right {
+    background: url('../img/right.png');
+    top: calc(var(--button-top) + 54px);
+    left: 109px;
+}
+#down {
+    background: url('../img/down.png');
+    top: calc(var(--button-top) + 54px + 54px);
+    left: 72px;
+}
+
+
+.tv {
+    background: url('../img/tv.png');
+    width: 690px;
+    height: 422px;
+}
 
 
 
