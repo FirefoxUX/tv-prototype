@@ -170,10 +170,10 @@ body {
 .tv {
     --carousel-top: 210px;
     --carousel-left: 50px;
-    --carousel-width: 173px;
+    --carousel-width: 174px;
     --carousel-height: 166px;
-    --carousel-row: 1;
-    --carousel-column: 2;
+    --carousel-row: 0;
+    --carousel-column: 0;
     background: no-repeat top/cover url('../img/browser@2x.png');
     position: absolute;
     top: 16px;

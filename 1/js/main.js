@@ -1,6 +1,6 @@
 (function() {
-    const ROW_COUNT = 5;
-    const COL_COUNT = 15;
+    const ROW_COUNT = 1;
+    const COL_COUNT = 4;
 
     let state = {
         index: [0,0]
@@ -33,7 +33,9 @@
             console.error(`Unknown direction!!! ${direction}`);
             break;
         }
-        console.log(direction, state.index);
+        let style = $('.tv')[0].style;
+        style.setProperty('--carousel-column', state.index[0]);
+        style.setProperty('--carousel-row', state.index[1]);
     }
 
     $('.button').click(e => {
