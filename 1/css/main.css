@@ -103,62 +103,80 @@ textarea {
    ========================================================================== */
 
 
-.main {
+
+body {
     display: flex;
     width: 100vw;
     height: 100vh;
     align-items: center;
     justify-content: center;
+    background: #cdcac8;
 }
 
+.main {
+    height: 575px;
+    width: 1200px;
+    background: no-repeat center/contain url('../img/background@2x.jpg');
+    position: relative;
+}
 .remote {
-    --button-top: 150px;
-    background: url('../img/remote.png');
+    --button-top: 220px;
+    --button-left: 52px;
+    --button-short: 20px;
+    --button-long: 75px;
     width: 190px;
     height: 422px;
-    position: relative;
     margin-right: 3em;
 }
 
 .button {
-    width: 43px;
-    height: 52px;
     position: absolute;
+    cursor: pointer;
+    /* border: 1px solid lightcoral; */
 }
 
 #up {
-    background: url('../img/up.png');
     top: calc(var(--button-top) + 0px);
-    left: 72px;
+    left: calc(var(--button-left) + var(--button-short));
+    width: var(--button-long);
+    height: var(--button-short);
 }
 #left {
-    background: url('../img/left.png');
-    top: calc(var(--button-top) + 54px);
-    left: 52px;
+    top: calc(var(--button-top) + var(--button-short));
+    left: var(--button-left);
+    width: var(--button-short);
+    height: var(--button-long);
 }
 #right {
-    background: url('../img/right.png');
-    top: calc(var(--button-top) + 54px);
-    left: 109px;
+    top: calc(var(--button-top) + var(--button-short));
+    left: calc(var(--button-left) + var(--button-long) + var(--button-short));
+    width: var(--button-short);
+    height: var(--button-long);
 }
 #down {
-    background: url('../img/down.png');
-    top: calc(var(--button-top) + 54px + 54px);
-    left: 72px;
+    top: calc(var(--button-top) + var(--button-short) + var(--button-long));
+    left: calc(var(--button-left) + var(--button-short));
+    width: var(--button-long);
+    height: var(--button-short);
+}
+#select {
+    top: calc(var(--button-top) + var(--button-short));
+    left: calc(var(--button-left) + var(--button-short));
+    width: var(--button-long);
+    height: var(--button-long);
 }
 
 
 .tv {
-    background: url('../img/tv.png');
-    width: 690px;
-    height: 422px;
+    background: no-repeat top/cover url('../img/browser@2x.png');
+    position: absolute;
+    top: 16px;
+    left: 222px;
+    width: 961px;
+    height: 541px;
+    overflow: hidden;
+    background-position: 0px 0px;
 }
-
-
-
-
-
-
 
 
 
