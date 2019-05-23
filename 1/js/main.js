@@ -3,9 +3,17 @@
     const ROW_COUNT = 1;
     const COL_COUNT = 4;
 
+    const NEWS_ROW = 2;
+    const SPORTS_ROW = 3;
+    const ENTERTAINMENT_ROW = 6;
+    const EXTENDED_COL_COUNT = 4;
+
     let state = {
+        index: {row: 0, col: 0},
         browser_index: 0,
-        index: {row: 0, col: 0}
+        news_index: 0,
+        sports_index: 0,
+        entertainment_index: 0,
     };
 
     let move = direction => {
@@ -20,11 +28,29 @@
         case 'left':
             if (state.index.col > 0) {
                 state.index.col -= 1;
+            } else if ((state.browser_index + state.index.row == NEWS_ROW) &&
+                state.news_index > 0) {
+                state.news_index -= 1;
+            } else if ((state.browser_index + state.index.row == SPORTS_ROW) &&
+                state.sports_index > 0) {
+                state.sports_index -= 1;
+            } else if ((state.browser_index + state.index.row == ENTERTAINMENT_ROW) &&
+                state.entertainment_index > 0) {
+                state.entertainment_index -= 1;
             }
             break;
         case 'right':
             if (state.index.col < COL_COUNT) {
                 state.index.col += 1;
+            } else if ((state.browser_index + state.index.row == NEWS_ROW) &&
+                state.news_index < EXTENDED_COL_COUNT) {
+                state.news_index += 1;
+            } else if ((state.browser_index + state.index.row == SPORTS_ROW) &&
+                state.sports_index < EXTENDED_COL_COUNT) {
+                state.sports_index += 1;
+            } else if ((state.browser_index + state.index.row == ENTERTAINMENT_ROW) &&
+                state.entertainment_index < EXTENDED_COL_COUNT) {
+                state.entertainment_index += 1;
             }
             break;
         case 'down':
@@ -43,6 +69,9 @@
         style.setProperty('--carousel-column', state.index.col);
         style.setProperty('--carousel-row', state.index.row);
         style.setProperty('--browser-row', state.browser_index);
+        style.setProperty('--news-index', state.news_index);
+        style.setProperty('--sports-index', state.sports_index);
+        style.setProperty('--entertainment-index', state.entertainment_index);
         console.log(JSON.stringify(state));
     }
 

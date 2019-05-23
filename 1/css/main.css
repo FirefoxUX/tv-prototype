@@ -175,6 +175,9 @@ body {
     --carousel-row: 0;
     --carousel-column: 0;
     --browser-row: 0;
+    --news-index: 0;
+    --sports-index: 0;
+    --entertainment-index: 0;
     background: no-repeat top/cover url('../img/browser@2x.png');
     position: absolute;
     top: 16px;
@@ -204,25 +207,25 @@ body {
     width: var(--width);
     height: var(--height);
     overflow: hidden;
-    transition: top 150ms ease-in-out;
+    transition: top 150ms ease-in-out, background-position-x 150ms ease-in-out;
 }
 
 .news {
     background: no-repeat top/cover url('../img/news-carousel@2x.png');
     top: calc(var(--carousel-top) - (var(--browser-row) - 2) * var(--carousel-height));
-    background-position-x: 0px;
+    background-position-x: calc(0px - var(--news-index) * var(--carousel-width));
 }
 
 .sports {
     background: no-repeat top/cover url('../img/sports-carousel@2x.png');
     top: calc(var(--carousel-top) - (var(--browser-row) - 3) * var(--carousel-height));
-    background-position-x: 0px;
+    background-position-x: calc(0px - var(--sports-index) * var(--carousel-width));
 }
 
 .entertainment {
     background: no-repeat top/cover url('../img/entertainment-carousel@2x.png');
     top: calc(var(--carousel-top) - (var(--browser-row) - 6) * var(--carousel-height));
-    background-position-x: 0px;
+    background-position-x: calc(0px - var(--entertainment-index) * var(--carousel-width));
 }
 
 
