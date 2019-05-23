@@ -196,6 +196,34 @@ body {
     height: 116px;
 }
 
+.carousel {
+    --width: 874px;
+    --height: 118px;
+    position: absolute;
+    left: var(--carousel-left);
+    width: var(--width);
+    height: var(--height);
+    overflow: hidden;
+    transition: top 150ms ease-in-out;
+}
+
+.news {
+    background: no-repeat top/cover url('../img/news-carousel@2x.png');
+    top: calc(var(--carousel-top) - (var(--browser-row) - 2) * var(--carousel-height));
+    background-position-x: 0px;
+}
+
+.sports {
+    background: no-repeat top/cover url('../img/sports-carousel@2x.png');
+    top: calc(var(--carousel-top) - (var(--browser-row) - 3) * var(--carousel-height));
+    background-position-x: 0px;
+}
+
+.entertainment {
+    background: no-repeat top/cover url('../img/entertainment-carousel@2x.png');
+    top: calc(var(--carousel-top) - (var(--browser-row) - 6) * var(--carousel-height));
+    background-position-x: 0px;
+}
 
 
  /* ==========================================================================
