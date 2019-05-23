@@ -171,9 +171,10 @@ body {
     --carousel-top: 210px;
     --carousel-left: 50px;
     --carousel-width: 174px;
-    --carousel-height: 166px;
+    --carousel-height: 171px;
     --carousel-row: 0;
     --carousel-column: 0;
+    --browser-row: 0;
     background: no-repeat top/cover url('../img/browser@2x.png');
     position: absolute;
     top: 16px;
@@ -181,10 +182,12 @@ body {
     width: 961px;
     height: 541px;
     overflow: hidden;
-    background-position: 0px 0px;
+    transition: background-position 150ms ease-in-out;
+    background-position: 0px calc(0px - var(--browser-row) * var(--carousel-height));
 }
 
 #focus {
+    transition: top 150ms ease-in-out, left 150ms ease-in-out;
     background: no-repeat top/cover url('../img/focus-ring@2x.png');
     position: absolute;
     top: calc(var(--carousel-top) + var(--carousel-row) * var(--carousel-height));
