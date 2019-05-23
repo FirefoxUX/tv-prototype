@@ -69,10 +69,23 @@
         style.setProperty('--carousel-column', state.index.col);
         style.setProperty('--carousel-row', state.index.row);
         style.setProperty('--browser-row', state.browser_index);
-        style.setProperty('--news-index', state.news_index);
-        style.setProperty('--sports-index', state.sports_index);
-        style.setProperty('--entertainment-index', state.entertainment_index);
-        console.log(JSON.stringify(state));
+
+        style = $('#news')[0].style;
+        style.setProperty('--index', state.news_index);
+        style.setProperty('--left-opacity', state.news_index == 0? 0 : 1);
+        style.setProperty('--right-opacity', state.news_index == EXTENDED_COL_COUNT? 0 : 1);
+
+        style = $('#sports')[0].style;
+        style.setProperty('--index', state.sports_index);
+        style.setProperty('--left-opacity', state.sports_index == 0? 0 : 1);
+        style.setProperty('--right-opacity', state.sports_index == EXTENDED_COL_COUNT? 0 : 1);
+
+        style = $('#entertainment')[0].style;
+        style.setProperty('--index', state.entertainment_index);
+        style.setProperty('--left-opacity', state.entertainment_index == 0? 0 : 1);
+        style.setProperty('--right-opacity', state.entertainment_index == EXTENDED_COL_COUNT? 0 : 1);
+
+        // console.log(JSON.stringify(state));
     }
 
     $('.button').click(e => {

@@ -175,9 +175,6 @@ body {
     --carousel-row: 0;
     --carousel-column: 0;
     --browser-row: 0;
-    --news-index: 0;
-    --sports-index: 0;
-    --entertainment-index: 0;
     background: no-repeat top/cover url('../img/browser@2x.png');
     position: absolute;
     top: 16px;
@@ -199,33 +196,72 @@ body {
     height: 116px;
 }
 
-.carousel {
-    --width: 874px;
+.row {
+    --index: 0;
+    --left-opacity: 1;
+    --right-opacity: 1;
+
+    --width: 974px;
     --height: 118px;
     position: absolute;
-    left: var(--carousel-left);
+    left: calc(var(--carousel-left) - 100);
     width: var(--width);
     height: var(--height);
-    overflow: hidden;
-    transition: top 150ms ease-in-out, background-position-x 150ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: top 150ms ease-in-out;
 }
 
-.news {
-    background: no-repeat top/cover url('../img/news-carousel@2x.png');
+#news {
     top: calc(var(--carousel-top) - (var(--browser-row) - 2) * var(--carousel-height));
-    background-position-x: calc(0px - var(--news-index) * var(--carousel-width));
 }
-
-.sports {
-    background: no-repeat top/cover url('../img/sports-carousel@2x.png');
+#sports {
     top: calc(var(--carousel-top) - (var(--browser-row) - 3) * var(--carousel-height));
-    background-position-x: calc(0px - var(--sports-index) * var(--carousel-width));
+}
+#entertainment {
+    top: calc(var(--carousel-top) - (var(--browser-row) - 6) * var(--carousel-height));
 }
 
-.entertainment {
-    background: no-repeat top/cover url('../img/entertainment-carousel@2x.png');
-    top: calc(var(--carousel-top) - (var(--browser-row) - 6) * var(--carousel-height));
-    background-position-x: calc(0px - var(--entertainment-index) * var(--carousel-width));
+.arrow {
+    width: 8px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: opacity 150ms ease-in-out;
+    padding: 0px 10px;
+}
+
+.arrow.left {
+    background-image: url('../img/arrow-left@2x.png');
+    opacity: var(--left-opacity);
+}
+.arrow.right {
+    background-image: url('../img/arrow-right@2x.png');
+    opacity: var(--right-opacity);
+}
+
+.carousel {
+    width: calc(var(--width) - 100px);
+    height: var(--height);
+    transition: background-position-x 150ms ease-in-out;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: calc(0px - var(--index) * var(--carousel-width));
+}
+
+#news > .carousel {
+    background-image: url('../img/news-carousel@2x.png');
+}
+
+#sports > .carousel {
+    background-image: url('../img/sports-carousel@2x.png');
+}
+
+#entertainment > .carousel {
+    background-image: url('../img/entertainment-carousel@2x.png');
 }
 
 
