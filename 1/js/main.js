@@ -9,6 +9,7 @@
     const EXTENDED_COL_COUNT = 4;
 
     let state = {
+        screen: 'home',
         index: {row: 0, col: 0},
         browser_index: 0,
         news_index: 0,
@@ -19,6 +20,9 @@
     let move = direction => {
         switch (direction) {
         case 'up':
+            if (state.screen != 'browser') {
+                break;
+            }
             if (state.index.row > 0) {
                 state.index.row -= 1;
             } else if (state.browser_index > 0) {
@@ -26,6 +30,9 @@
             }
             break;
         case 'left':
+            if (state.screen != 'browser') {
+                break;
+            }
             if (state.index.col > 0) {
                 state.index.col -= 1;
             } else if ((state.browser_index + state.index.row == NEWS_ROW) &&
@@ -40,6 +47,9 @@
             }
             break;
         case 'right':
+            if (state.screen != 'browser') {
+                break;
+            }
             if (state.index.col < COL_COUNT) {
                 state.index.col += 1;
             } else if ((state.browser_index + state.index.row == NEWS_ROW) &&
@@ -54,18 +64,29 @@
             }
             break;
         case 'down':
+            if (state.screen != 'browser') {
+                break;
+            }
             if (state.index.row < ROW_COUNT) {
                 state.index.row += 1;
             } else if (state.browser_index < BG_ROW_COUNT) {
                 state.browser_index += 1;
             }
             break;
-
+        case 'select':
+            if (state.screen == 'home') {
+                state.screen = 'browser';
+                $('.tv.browser')[0].style.opacity = 1;
+            } else if (state.screen == 'browser') {
+                state.screen = 'browser';
+                $('.tv.food')[0].style.opacity = 1;
+            }
+            break;
         default:
             console.error(`Unknown direction!!! ${direction}`);
             break;
         }
-        let style = $('.tv')[0].style;
+        let style = $('.tv.browser')[0].style;
         style.setProperty('--carousel-column', state.index.col);
         style.setProperty('--carousel-row', state.index.row);
         style.setProperty('--browser-row', state.browser_index);
@@ -98,5 +119,4 @@
         let key = e.key.replace("Arrow", "").toLowerCase();
         move(key);
     })
-
 }());

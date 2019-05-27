@@ -168,6 +168,23 @@ body {
 
 
 .tv {
+    position: absolute;
+    top: 16px;
+    left: 222px;
+    width: 961px;
+    height: 541px;
+    overflow: hidden;
+    opacity: 0;
+    background-position: 0 0;
+    transition: background-position 150ms ease-in-out, opacity 150ms ease-in-out;
+}
+
+.tv.home {
+    background: no-repeat top/cover url('../img/fire-tv-homescreen.png');
+    opacity: 1
+}
+.tv.browser {
+    background: no-repeat top/cover url('../img/browser@2x.png');
     --carousel-top: 210px;
     --carousel-left: 50px;
     --carousel-width: 174px;
@@ -175,15 +192,10 @@ body {
     --carousel-row: 0;
     --carousel-column: 0;
     --browser-row: 0;
-    background: no-repeat top/cover url('../img/browser@2x.png');
-    position: absolute;
-    top: 16px;
-    left: 222px;
-    width: 961px;
-    height: 541px;
-    overflow: hidden;
-    transition: background-position 150ms ease-in-out;
     background-position: 0px calc(0px - var(--browser-row) * var(--carousel-height));
+}
+.tv.food {
+    background: no-repeat top/cover url('../img/food-network.png');
 }
 
 #focus {
