@@ -113,10 +113,13 @@
         move(e.target.id);
     });
     $(document).keydown(e => {
-        if (!e.key.startsWith("Arrow")) {
+        if (!e.key.startsWith("Arrow") && e.key != 'Enter') {
             return;
         }
         let key = e.key.replace("Arrow", "").toLowerCase();
+        if (key == 'enter') {
+            key = 'select';
+        }
         move(key);
     })
 }());
