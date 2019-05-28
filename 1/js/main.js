@@ -77,7 +77,8 @@
             if (state.screen == 'home') {
                 state.screen = 'browser';
                 $('.tv.browser')[0].style.opacity = 1;
-            } else if (state.screen == 'browser') {
+            } else if (state.screen == 'browser' && state.browser_index == 6 &&
+                state.index.col == 1 && state.index.row == 1) {
                 state.screen = 'browser';
                 $('.tv.food')[0].style.opacity = 1;
             }
